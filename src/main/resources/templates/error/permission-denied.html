@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/mycss.css" th:href="@{/css/mycss.css}" />
+<title>Permission Denied</title>
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Import the Materialize Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+
+<!-- Import fonts from Googlefonts-->
+<link
+	href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+	rel="stylesheet">
+
+<!-- Compiled and minified JavaScript -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+	
+</script>
+</head>
+<body>
+	<div class="container">
+		<h1 class="center-align">Permission Denied</h1>
+		<footer class="page-footer transparent">
+			<div class="footer-copyright #424242 grey darken-3">
+				<div class="left-align">
+					<a href="/" class="btn btn-block waves-effect orange waves-red">Go
+						to Home<i class="material-icons right">home</i>
+					</a> <a href="#" class="btn btn-block waves-effect orange waves-red"
+						th:href="@{/logout}">Logout<i class="material-icons right">airline_seat_legroom_reduced</i></a>
+				</div>
+			</div>
+		</footer>
+	</div>
+</body>
+</html>

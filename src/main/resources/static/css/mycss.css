@@ -1,0 +1,17 @@
+h1 {
+	color: #424242;
+	font-weight: bold;
+	font-family: 'Indie Flower', cursive;
+}
+
+html {
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	background:#FF8992 100%;
+	background-size: cover;
+	margin: 0px;
+}

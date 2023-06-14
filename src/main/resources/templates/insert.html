@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/mycss.css" th:href="@{/css/mycss.css}" />
+<title>Insert</title>
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Import the Materialize Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+
+<!-- Import fonts from Googlefonts-->
+<link
+	href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+	rel="stylesheet">
+
+<!-- Compiled and minified JavaScript -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+	
+</script>
+</head>
+<body>
+	<div class="container">
+		<footer class="page-footer transparent">
+			<h1 class="center-align">Insert a bike here!</h1>
+			<div class="card-panel #424242 grey darken-3">
+				<table class="highlight centered">
+					<thead>
+						<tr>
+							<th>Manufacturer</th>
+							<th>Model</th>
+							<th>Year</th>
+							<th>Color</th>
+							<th>Price</th>
+						</tr>
+					</thead>
+					<tr th:each="bike:${bikeList}">
+						<td th:text="${bike.manufacturerID}">101</td>
+						<td th:text="${bike.model}">Mountain</td>
+						<td th:text="${bike.year}">2020</td>
+						<td th:text="${bike.colour}">Black</td>
+						<td th:text="${bike.price}">299.99</td>
+					</tr>
+				</table>
+			</div>
+
+			<br>
+
+			<div class="card-panel hoverable #bdbdbd grey lighten-1">
+				<form method="post" th:action="@{/postInsert}" th:object="${bike}">
+
+					Manufacturer:
+					<!-- *{manufacturerID} is the field where the information from user is sent to the HomeController -->
+
+					<select class="browser-default" th:field="*{manufacturerID}">
+						<option th:each="m:${manufacturerList}"
+							th:value="${m.manufacturerID}" th:text="${m.manufacturer}"></option>
+					</select><br> Model: <input type="text" name="model"
+						th:field="*{model}" required /><br> Year: <input
+						type="number" min="0" step="1" max="2020" name="year"
+						th:field="*{year}" required /><br> Colour: <input
+						type="text" name="colour" th:field="*{colour}" required /><br>
+					Price: <input type="number" min="0" step="0.01" name="price"
+						th:field="*{price}" required /><br>
+					<button class="btn waves-effect waves-red cyan pulse" type="submit"
+						name="action">
+						Insert! <i class="material-icons right">send</i>
+					</button>
+				</form>
+			</div>
+
+			<br>
+			<div class="footer-copyright #424242 grey darken-3">
+				<div class="left-align">
+					<a href="/" class="btn btn-block waves-effect orange waves-red">Go
+						to Home<i class="material-icons right">home</i>
+					</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+</body>
+</html>

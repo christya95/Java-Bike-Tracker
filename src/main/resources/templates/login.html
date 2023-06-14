@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/mycss.css" th:href="@{/css/mycss.css}" />
+<title>Login Please</title>
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Import the Materialize Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+
+<!-- Import fonts from Googlefonts-->
+<link
+	href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+	rel="stylesheet">
+
+<!-- Compiled and minified JavaScript -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+	
+</script>
+</head>
+<body>
+	<div class="container">
+		<form method="post" th:action="@{/login}">
+
+			<div th:if="${param.error}">
+				<div class="error center-align">
+					<h1>Invalid username or password.</h1>
+				</div>
+			</div>
+
+			<div th:if="${param.logout}">
+				<div class="error center-align">
+					<h1>You have been logged out.</h1>
+				</div>
+			</div>
+
+
+			<div class="card-panel hoverable #bdbdbd grey lighten-1">
+				Email: <input type="email" name="username" /><br> Password: <input
+					type="password" name="password" /><br>
+				<button class="btn waves-effect waves-red cyan pulse" type="submit"
+					name="login-submit">
+					Log In! <i class="material-icons right">send</i>
+				</button>
+			</div>
+
+		</form>
+		<div class="footer-copyright #424242 grey darken-3">
+			<div class="left-align">
+				<a href="/" class="btn btn-block waves-effect orange waves-red">Go
+					to Home<i class="material-icons right">home</i>
+				</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
